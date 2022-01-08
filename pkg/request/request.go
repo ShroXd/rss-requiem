@@ -86,7 +86,8 @@ func FetchURL(feedURL string, options RequestOptions) (feed *parser.Feed, err er
 		log.Fatalln(err)
 	}
 
-	fmt.Print(string(body))
+	c := parser.BaseParser()
+	c.ParseFeed(body)
 
 	// TODO placeholder for the real parser
 	f := parser.Feed{}
