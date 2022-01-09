@@ -14,19 +14,16 @@ func BaseParser() *Parser {
 	return &p
 }
 
-type Feed struct {
-	XMLName xml.Name `xml:"rss"`
-	Version string   `xml:"version,attr"`
-}
-
 func (p *Parser) ParseFeed(feed []byte) {
 	f1 := Feed{}
-	fmt.Println(string(feed), '\n')
 	err := xml.Unmarshal(feed, &f1)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(f1.XMLName.Local)
-	fmt.Println(f1.Version)
+	ci := f1.Channel.Item[0]
+
+	fmt.Println("Item title: ", ci.Title)
+	fmt.Println("Item link: ", ci.Link)
+	fmt.Println("Item description: ", ci.Description)
 }

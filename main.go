@@ -11,7 +11,8 @@ func main() {
 		Timeout:  6 * time.Second,
 	})
 
-	request.FetchURL("https://news.ycombinator.com/rss", ro)
+	// request.FetchURL("https://news.ycombinator.com/rss", ro)
+	request.FetchURL("https://feeds.feedburner.com/ruanyifeng", ro)
 
 	// fp := gofeed.NewParser()
 	// feed, _ := fp.ParseURL("https://feeds.feedburner.com/ruanyifeng")
